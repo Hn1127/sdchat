@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>app_win32.rc</file>
+        <file>images/favicon.ico</file>
+    </qresource>
+</RCC>

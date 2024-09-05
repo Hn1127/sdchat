@@ -3,10 +3,23 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <QFile>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    // 加载qss文件
+    QFile qss(":/style/stylesheet.qss");
+    if( qss.open(QFile::ReadOnly))
+    {
+        qDebug("qssFile open success");
+        QString style = QLatin1String(qss.readAll());
+        a.setStyleSheet(style);
+        qss.close();
+    }else{
+        qDebug("qssFile Open failed");
+    }
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
