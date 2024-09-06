@@ -3,5 +3,6 @@
         <file>images/favicon.ico</file>
         <file>images/favicon.jpg</file>
         <file>style/stylesheet.qss</file>
+        <file>icon.rc</file>
     </qresource>
 </RCC>

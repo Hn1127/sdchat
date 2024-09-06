@@ -30,7 +30,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         logindialog.h logindialog.cpp logindialog.ui
-        app_win32.rc
+        icon.rc
         registerdialog.h registerdialog.cpp registerdialog.ui
         rc.qrc
         global.h global.cpp
