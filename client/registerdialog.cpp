@@ -31,7 +31,12 @@ void RegisterDialog::on_get_code_clicked()
     if(match){
         // 发送http请求获取验证码
         showTip("",true);
-
+        QJsonObject json_obj;
+        json_obj["email"] = email;
+        HttpMgr::GetInstance()->PostHttpReq(QUrl("http://localhost:8080/get_varifycode"),
+                                            json_obj,
+                                            ReqId::ID_GET_VARIFY_CODE,
+                                            Modules::REGISTERMOD);
     }else{
         // 提示邮箱不正确
         showTip(tr("邮箱地址不正确"),false);
@@ -83,8 +88,6 @@ void RegisterDialog::initHttpHandlers(){
             showTip(tr("参数错误"),false);
             return;
         }
-        auto email = jsonObj["email"].toString();
         showTip(tr("验证码已发送到邮箱，注意查收"), true);
-        qDebug()<< "email is " << email ;
     });
 }
