@@ -1,5 +1,5 @@
 QDialog#LoginDialog{
-background-color:rgb(255,255,255)
+
 }
 
 #err_tip[state='normal']{

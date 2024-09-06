@@ -75,3 +75,4 @@ CMakeLists.txt.user*
 /build
 /.vscode
 /client/build
+/server/GateServer/build
