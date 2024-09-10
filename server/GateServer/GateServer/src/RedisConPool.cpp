@@ -24,7 +24,7 @@ RedisConPool::RedisConPool(size_t poolSize, const char* host, int port, const ch
 
 		// 释放reply
 		freeReplyObject(reply);
-		std::cout << "认证成功" << std::endl;
+		std::cout << "Redis Conn"<< i <<" 认证成功" << std::endl;
 		_conns.push(context);
 	}
 }

@@ -3,6 +3,7 @@
 #include "const.h"
 #include "Singleton.h"
 #include "VarifyGrpcClient.h"
+#include "RedisMgr.h"
 #include <functional>
 #include <map>
 

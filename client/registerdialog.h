@@ -27,6 +27,8 @@ private:
     void slot_reg_mod_finish(ReqId id, QString res, ErrorCodes err);
     // 点击"获取验证码"btn
     void on_get_code_clicked();
+    // 点击"注册"按钮
+    void on_sure_btn_clicked();
     // 显示信息
     void showTip(QString str,bool ok);
     // 初始化handlers

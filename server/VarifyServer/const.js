@@ -1,4 +1,4 @@
-let code_prefix = "code_";
+let code_prefix = "";
 
 const Errors = {
     Success : 0,

@@ -11,18 +11,19 @@ async function GetVarifyCode(call, callback) {
         // 现在Redis中查询是否已有该邮箱的验证码信息
         let query_res = await redis_module.GetRedis(const_module.code_prefix + call.request.email);
         console.log("query_res is ", query_res)
+        let uniqueId = query_res;
         if (query_res == null) {
             // 无信息则生成验证码并保存在Redis中
             uniqueId = uuidv4();
             if (uniqueId.length > 4) {
                 uniqueId = uniqueId.substring(0, 4);
-                let bres = await redis_module.SetRedisExpire(const_module.code_prefix+call.request.email, uniqueId,600)
-                if(!bres){
-                    callback(null, { email:  call.request.email,
-                        error:const_module.Errors.RedisErr
-                    });
-                    return;
-                }
+            }
+            let bres = await redis_module.SetRedisExpire(const_module.code_prefix+call.request.email, uniqueId,600)
+            if(!bres){
+                callback(null, { email:  call.request.email,
+                    error:const_module.Errors.RedisErr
+                });
+                return;
             }
         }
         

@@ -22,6 +22,7 @@ void HttpMgr::PostHttpReq(QUrl url, QJsonObject json, ReqId req_id, Modules mod)
     QObject::connect(reply,&QNetworkReply::finished,[reply,self,req_id,mod](){
         QString res = "";
         bool success = true;    // 记录请求是否成功
+
         // 检查是否出现错误
         if(reply->error()==QNetworkReply::NoError){
             // 无错误则读取请求
@@ -33,6 +34,7 @@ void HttpMgr::PostHttpReq(QUrl url, QJsonObject json, ReqId req_id, Modules mod)
             success=false;
         }
         // 发送信号通知完成
+        qDebug() << res;
         emit self->sig_http_finish(req_id, res, success?ErrorCodes::SUCCESS:ErrorCodes::ERR_NETWORK,mod);
         reply->deleteLater();
         return ;
