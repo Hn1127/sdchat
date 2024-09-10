@@ -2,6 +2,8 @@
 
 #include "const.h"
 #include "HttpConnection.h"
+#include "ConfigMgr.h"
+#include "AsioIOServicePool.h"
 
 class CServer : public std::enable_shared_from_this<CServer>
 {

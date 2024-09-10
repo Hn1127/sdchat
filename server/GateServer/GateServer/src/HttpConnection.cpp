@@ -5,6 +5,11 @@ HttpConnection::HttpConnection(tcp::socket socket)
 {
 }
 
+tcp::socket& HttpConnection::GetSocket()
+{
+    return this->_socket;
+}
+
 void HttpConnection::Start()
 {
     auto self = shared_from_this();
