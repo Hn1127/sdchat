@@ -2,6 +2,7 @@
 
 #include "const.h"
 #include "Singleton.h"
+#include "VarifyGrpcClient.h"
 #include <functional>
 #include <map>
 

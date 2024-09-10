@@ -5,6 +5,9 @@
 #include <functional>
 #include "QStyle"
 
+// 服务器url路径
+extern QString gate_url_prefix;
+
 // 更新窗口动态属性
 extern std::function<void(QWidget*)> repolish;
 

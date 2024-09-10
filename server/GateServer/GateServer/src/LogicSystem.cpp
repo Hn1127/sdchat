@@ -38,8 +38,9 @@ LogicSystem::LogicSystem()
                 {
                     auto email = src_root["email"].asString();
                     std::cout << "email is " << email << std::endl;
-                    root["error"] = 0;
-                    root["email"] = src_root["email"];
+                    GetVarifyRsp rsp = VarifyGrpcClient::GetInstance()->GetVarifyCode(email);
+                    root["email"] = email;
+                    root["error"] = rsp.error();
                 }
                 std::string jsonstr = root.toStyledString();
                 beast::ostream(conn->_response.body()) << jsonstr;

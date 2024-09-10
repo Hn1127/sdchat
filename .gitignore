@@ -76,3 +76,10 @@ CMakeLists.txt.user*
 /.vscode
 /client/build
 /server/GateServer/build
+/server/GateServer/.vs
+server/GateServer/GateServer/Debug boost.props
+/server/GateServer/GateServer/GateServer/x64
+server/GateServer/GateServer/PropertySheet.props
+server/GateServer/GateServer/Release boost.props
+/server/GateServer/GateServer/x64
+/server/GateServer1
