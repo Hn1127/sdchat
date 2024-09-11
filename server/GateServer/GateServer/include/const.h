@@ -17,10 +17,15 @@ enum ErrorCodes
 {
     Success = 0,
     Error_Json = 1001,  // Json解析错误
-    RPCFailed = 1002,   // RPC请求错误
-    VarifyExpired = 1003,      // 无对应验证码
-    VarifyCodeErr = 1004,  // 验证码错误
-    UserExist = 1005,    // 用户名已存在
+    RPCFailed,   // RPC请求错误
+    VarifyExpired,      // 无对应验证码
+    VarifyCodeErr,  // 验证码错误
+    UserExist,    // 用户名已存在
+    EmailExist, // 邮箱已存在
+    EmailNotMatch,   // 邮箱与用户名不匹配
+    PasswdErr, // 密码错误
+    PasswdUpFailed, // 密码更新失败
+    ServerErr = 2001,    // 服务器错误
 };
 
 namespace beast = boost::beast;   // from <boost/beast.hpp>

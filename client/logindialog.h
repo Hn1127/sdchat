@@ -17,9 +17,11 @@ public:
 
 signals:
     void switchRegister();
+    void switchReset();
 
 private:
     Ui::LoginDialog *ui;
+    bool pass_vis;
 };
 
 #endif // LOGINDIALOG_H

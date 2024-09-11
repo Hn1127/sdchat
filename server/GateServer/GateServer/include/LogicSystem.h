@@ -4,6 +4,7 @@
 #include "Singleton.h"
 #include "VarifyGrpcClient.h"
 #include "RedisMgr.h"
+#include "MysqlMgr.h"
 #include <functional>
 #include <map>
 

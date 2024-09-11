@@ -135,7 +135,6 @@ void HttpConnection::WriteResponse()
     // 处理响应
     auto self = shared_from_this();
     _response.content_length(_response.body().size());
-    std::cout << _response << std::endl;
     // http是短连接,发送完毕后直接断开发送端
     http::async_write(_socket, _response,
                       [self](beast::error_code ec, std::size_t)

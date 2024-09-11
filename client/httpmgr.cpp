@@ -34,7 +34,6 @@ void HttpMgr::PostHttpReq(QUrl url, QJsonObject json, ReqId req_id, Modules mod)
             success=false;
         }
         // 发送信号通知完成
-        qDebug() << res;
         emit self->sig_http_finish(req_id, res, success?ErrorCodes::SUCCESS:ErrorCodes::ERR_NETWORK,mod);
         reply->deleteLater();
         return ;
@@ -44,7 +43,13 @@ void HttpMgr::PostHttpReq(QUrl url, QJsonObject json, ReqId req_id, Modules mod)
 void HttpMgr::slot_http_finish(ReqId id,QString res,ErrorCodes err,Modules mod){
     // 根据mod发送给出不同的信号
     if(mod == Modules::REGISTERMOD){
-        //发送信号通知指定模块http响应结束
+        // 注册模块
         emit sig_reg_mod_finish(id, res, err);
+    } else if (mod == Modules::LOGINMOD) {
+        // 登录模块
+        emit sig_login_mod_finish(id, res, err);
+    } else if (mod == Modules::RESETMOD) {
+        // 重置模块
+        emit sig_reset_mod_finish(id, res, err);
     }
 }

@@ -79,7 +79,7 @@
           <enum>Qt::TextFormat::AutoText</enum>
          </property>
          <property name="pixmap">
-          <pixmap resource="rc.qrc">:/images/favicon.jpg</pixmap>
+          <pixmap resource="rc.qrc">:/res/favicon.jpg</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -133,7 +133,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="edit_user"/>
        </item>
       </layout>
      </item>
@@ -147,9 +147,39 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_2">
+        <widget class="QLineEdit" name="edit_pass">
          <property name="echoMode">
           <enum>QLineEdit::EchoMode::Password</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pass_visible">
+         <property name="minimumSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-style:none;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="rc.qrc">
+           <normaloff>:/res/unvisible.png</normaloff>
+           <normalon>:/res/visible_hover.png</normalon>:/res/unvisible.png</iconset>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -171,7 +201,15 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="btn_reset">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-style:rgb(0, 0, 0)</string>
+         </property>
          <property name="text">
           <string>忘记密码</string>
          </property>
@@ -218,7 +256,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
-        <widget class="QPushButton" name="reg_btn">
+        <widget class="QPushButton" name="btn_reg">
          <property name="maximumSize">
           <size>
            <width>80</width>

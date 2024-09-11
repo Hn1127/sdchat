@@ -85,3 +85,5 @@ server/GateServer/GateServer/Release boost.props
 /server/GateServer1
 /server/VarifyServer/node_modules
 /server/VarifyServer1
+/server/GateServer/x64
+dump.rdb

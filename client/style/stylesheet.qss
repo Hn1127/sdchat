@@ -1,11 +1,7 @@
-QDialog#LoginDialog{
-
-}
-
 #err_tip[state='normal']{
    color: green;
 }
 
-#err_tip[state='err']{
+#err_tip[state='error']{
    color: red;
 }
