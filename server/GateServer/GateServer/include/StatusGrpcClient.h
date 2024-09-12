@@ -2,6 +2,7 @@
 
 #include <grpcpp/grpcpp.h>
 #include <mutex>
+#include <queue>
 #include "message.grpc.pb.h"
 #include "Singleton.h"
 #include "const.h"
@@ -48,7 +49,7 @@ public:
 		if (b_stop) {
 			return  nullptr;
 		}
-		auto context = std::move(_conns.front());
+		std::unique_ptr<StatusService::Stub> context = std::move(_conns.front());
 		_conns.pop();
 		return context;
 	}
@@ -93,12 +94,12 @@ public:
 		auto stub = _pool->getConnection();
 		Status status = stub->GetChatServer(&context, request, &reply);
 		if (status.ok()) {
-			_pool->returnConnection(stub);
+			_pool->returnConnection(std::move(stub));
 			return reply;
 		}
 		else {
 			reply.set_error(ErrorCodes::RPCFailed);
-			_pool->returnConnection(stub);
+			_pool->returnConnection(std::move(stub));
 			return reply;
 		}
 	}
@@ -108,8 +109,9 @@ private:
 		auto gCfgMgr = ConfigMgr::GetInstance();
 		std::string host = gCfgMgr->operator[]("StatusServer")["Host"];
 		std::string port = gCfgMgr->operator[]("StatusServer")["Port"];
-		_pool.reset(new StatusConPool(5, host, port)
+		_pool.reset(new StatusConPool(5, host, port));
 	}
 	std::unique_ptr<StatusConPool> _pool;
+
 };
 
