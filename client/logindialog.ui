@@ -62,7 +62,7 @@
         <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
        </property>
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="label_icon">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -111,7 +111,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_tips">
+      <widget class="QLabel" name="err_tip">
        <property name="text">
         <string/>
        </property>
@@ -236,7 +236,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
-        <widget class="QPushButton" name="log_btn">
+        <widget class="QPushButton" name="btn_log">
          <property name="maximumSize">
           <size>
            <width>80</width>

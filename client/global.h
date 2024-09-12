@@ -14,8 +14,9 @@ extern std::function<void(QWidget*)> repolish;
 // http请求类型
 enum ReqId {
     ID_GET_VARIFY_CODE = 1001, // 获取验证码
-    ID_REG_USER = 1002,        // 注册用户
-    ID_RESET_USER = 1003,      // 重置用户
+    ID_REG_USER,               // 注册用户
+    ID_RESET_USER,             // 重置用户
+    ID_LOGIN_USER,             // 登录用户
 };
 
 // Lable状态
@@ -44,8 +45,8 @@ enum ErrorCodes {
 // http请求属于的模块
 enum Modules {
     REGISTERMOD = 0, // 注册模块
-    LOGINMOD = 1,    // 登录模块
-    RESETMOD = 2,    // 重置模块
+    LOGINMOD,        // 登录模块
+    RESETMOD,        // 重置模块
 
 };
 

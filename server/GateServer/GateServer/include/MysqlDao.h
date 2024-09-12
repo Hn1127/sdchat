@@ -19,6 +19,9 @@ public:
 
 	// 更新密码
 	bool UpdatePwd(const std::string& name, const std::string& pwd);
+
+	// 检查密码是否正确
+	bool CheckPwd(const std::string& name, const std::string& pwd, int& userID);
 private:
 	std::unique_ptr<MysqlConPool> _pool;
 };

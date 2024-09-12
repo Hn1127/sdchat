@@ -123,7 +123,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="edit_pass"/>
+       <widget class="QLineEdit" name="edit_pass">
+        <property name="echoMode">
+         <enum>QLineEdit::EchoMode::Password</enum>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pass_visible">

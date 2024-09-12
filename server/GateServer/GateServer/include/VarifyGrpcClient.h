@@ -15,9 +15,9 @@ using message::GetVarifyReq;
 using message::GetVarifyRsp;
 using message::VarifyService;
 
-class RPConPool {
+class VarifyConPool {
 public:
-    RPConPool(size_t poolSize, std::string host, std::string port)
+    VarifyConPool(size_t poolSize, std::string host, std::string port)
         : poolSize_(poolSize), host_(host), port_(port), b_stop_(false) {
         for (size_t i = 0; i < poolSize_; ++i) {
 
@@ -28,7 +28,7 @@ public:
         }
     }
 
-    ~RPConPool() {
+    ~VarifyConPool() {
         std::lock_guard<std::mutex> lock(mutex_);
         Close();
         while (!connections_.empty()) {
@@ -105,7 +105,7 @@ private:
         auto gCfgMgr = ConfigMgr::GetInstance();
         std::string host = gCfgMgr->operator[]("VarifyServer")["Host"];
         std::string port = gCfgMgr->operator[]("VarifyServer")["Port"];
-        _pool.reset(new RPConPool(5, host, port));
+        _pool.reset(new VarifyConPool(5, host, port));
     }
-    std::unique_ptr<RPConPool> _pool;
+    std::unique_ptr<VarifyConPool> _pool;
 };

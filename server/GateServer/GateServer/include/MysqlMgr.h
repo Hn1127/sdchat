@@ -18,6 +18,11 @@ public:
 	// ¸üĞÂÃÜÂë
 	bool UpdatePwd(const std::string& name, const std::string& pwd);
 
+	// ²éÑ¯ÃÜÂë
+	bool CheckPwd(const std::string& name, const std::string& pwd, int& userID) {
+		return _dao.CheckPwd(name, pwd, userID);
+	}
+
 private:
 	MysqlMgr();
 	MysqlDao _dao;
